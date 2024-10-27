@@ -79,4 +79,26 @@ inverse_transform = function(x1,a,c,m,n,mean,sd){
 
 # Acceptance-Rejection法
 
-步骤1：
+
+步骤1：选择一个随机分布，这里我选择的均值为0，标准差为5的正态分布：
+
+![pdf](https://github.com/Tony980624/Random-Generating-Process/blob/main/file01/Rplot01.png)
+
+步骤2；给这个分布的x和y设限制，这里我把x限定为(-12,12),y限定在(0,0.06)
+
+![bpdf](https://github.com/Tony980624/Random-Generating-Process/blob/main/file01/Rplot02.png)
+
+步骤3：在x的取值范围内生成一个服从均匀分布的变量,我这里生成了 -4.599556
+
+```
+runif(1,-12,12)
+```
+
+步骤4：在y的取值范围内生成一个服从均匀分布的变量,我这里生成了 0.01835325
+
+```
+runif(1,0,0.06)
+```
+
+步骤5：查看生成两个坐标形成的坐标的位置是否落在了pdf的下方？
+
