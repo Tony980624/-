@@ -56,6 +56,27 @@ CDF是一个变量的在其取值X上的累计概率分布，CDF的y轴代表P(X
 
 由于CDF的y轴代表的是概率，所以其取值总是介于(0,1)
 
+![cdf](https://github.com/Tony980624/Random-Generating-Process/blob/main/file01/Rplot.png)
+
 如果我们可以生成随机变量~Uniform(0,1)，然后带入CDF的y中去求X,是不是就能生成随机数了？
 
 我们只需要准备一个随机变量的CDF的反函数和一个符合Uniform(0,1)的变量就好了.
+
+```
+inverse_transform = function(x1,a,c,m,n,mean,sd){
+  v = numeric(n)
+  w = numeric(n)
+  for (i in 1:n) {
+    v[i] = x1/m
+    x1 = (x1*a+c) %% m
+  }
+  for (j in 1:n) {
+    w[j] = qnorm(v[j],mean = mean,sd)
+  }
+  return(w)
+}
+```
+
+# Acceptance-Rejection法
+
+步骤1：
