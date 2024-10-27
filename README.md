@@ -52,4 +52,10 @@ Uniform_random = function(x1,a,c,m,n){
 
 # Inverse-Transform 方法
 
+CDF是一个变量的在其取值X上的累计概率分布，CDF的y轴代表P(X<x)，也就是从这个分布中取值x,小于当前位置X的概率。
 
+由于CDF的y轴代表的是概率，所以其取值总是介于(0,1)
+
+如果我们可以生成随机变量~Uniform(0,1)，然后带入CDF的y中去求X,是不是就能生成随机数了？
+
+我们只需要准备一个随机变量的CDF的反函数和一个符合Uniform(0,1)的变量就好了.
